@@ -1,0 +1,13 @@
+{
+  "name": "Sahaay",
+  "short_name": "Sahaay",
+  "description": "Open-source emergency help for Indian cities: who to call, what to do, and keeping your people in the loop.",
+  "start_url": "./#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F4F4F1",
+  "theme_color": "#D7261E",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
