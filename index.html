@@ -276,6 +276,18 @@ label[for="find"] .ico{color:#8E8E93!important}
 .beat{box-shadow:0 12px 30px rgba(217,45,32,.3)}
 :focus-visible{outline:3px solid #0A84FF;outline-offset:2px}
 
+
+/* audit fixes: Vercel web interface guidelines */
+.p112{min-height:44px!important;padding:0 14px}
+.back,a[aria-label="Profile"]{min-width:44px!important;min-height:44px!important;width:44px!important;height:44px!important}
+.top{min-height:58px}
+a,button,summary,label,.chip,input,select{touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,.06)}
+.chip{min-height:40px}
+.btn.sm{min-height:44px}
+nav.tabs a{min-height:50px}
+button:active,.btn:active,.listlink:active,.tile:active,.bigcall:active{opacity:.75}
+.field select{background-color:#F2F2F7;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -377,7 +389,7 @@ const now=()=>Date.now();
 const tstr=t=>new Date(t).toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"});
 function km(a,b){const r=Math.PI/180,dA=(b.lat-a.lat)*r,dO=(b.lng-a.lng)*r;const h=Math.sin(dA/2)**2+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dO/2)**2;return 12742*Math.asin(Math.sqrt(h));}
 function fmtKm(d){return d==null?"–":d<10?d.toFixed(1):String(Math.round(d));}
-function toast(t){const el=document.createElement("div");el.className="toast";el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2400);}
+function toast(t){const el=document.createElement("div");el.className="toast";el.setAttribute("role","status");el.setAttribute("aria-live","polite");el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2400);}
 function newId(){return "HYD-"+Math.floor(1000+Math.random()*9000);}
 function addLog(txt){if(!INC)return;INC.log.push({t:now(),txt});saveInc();}
 function startInc(kind,extra){
